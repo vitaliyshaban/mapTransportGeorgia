@@ -20,7 +20,7 @@ const config = {
   },
   devServer: {
     headers: {
-      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+      // 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
     }
   },
   // entry: './src/index.js',

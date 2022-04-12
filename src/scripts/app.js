@@ -14,6 +14,7 @@ const map = new mapboxgl.Map({
 	zoom: 13 // starting zoom
 });
 
+let geojsonBus;
 
 function addPath(jsonData) {
     map.addSource('route', {
@@ -40,6 +41,8 @@ function addPath(jsonData) {
             'line-width': 1
         }
     });
+
+    /* ostanovki */
     const geojson = {
 		'type': 'FeatureCollection',
 		'features': [
@@ -57,7 +60,7 @@ function addPath(jsonData) {
 	    	}
     	)
     })
-    console.log(geojson)
+    console.log(jsonData)
     map.addSource('points', {
         'type': 'geojson',
         'data': {
@@ -78,17 +81,82 @@ function addPath(jsonData) {
         }
     });
 
-    setTimeout(()=> {
-    	geojson.features[2].geometry.coordinates = [41.620198, 41.6232331];
-    	// console.log(geojson.features[2].geometry.coordinates)
-    	map.getSource('points').setData(geojson);
+    geojsonBus = {
+		'type': 'FeatureCollection',
+		'features': [
+		]
+	};
+    jsonData.buses.map((item) => {
+    	geojsonBus.features.push(
+	    	{
+	            'type': 'Feature',
+	            'properties': {
+	            	id: item.id
+	            },
+	            'geometry': {
+	                'type': 'Point',
+	                'coordinates': [item.lon, item.lat]
+	            }
+	    	}
+    	)
+    })
+
+    map.addSource('bus', {
+        'type': 'geojson',
+        'data': {
+            'type': 'FeatureCollection',
+            'features': geojsonBus.features
+        }
+    });
+    // Add a circle layer
+    map.addLayer({
+        'id': 'bus',
+        'type': 'circle',
+        'source': 'bus',
+        'paint': {
+            'circle-color': 'red',
+            'circle-radius': 6,
+            'circle-stroke-width': 2,
+            'circle-stroke-color': 'blue'
+        }
+    });
+
+    /* buses */
+
+
+    setInterval(()=> {
+    	updateBusCoordinate();
+    	// console.log(map.getFeatureState({ id: '5f919191043b05375954538e', source: "bus" }));
+    	// geojson.features[2].geometry.coordinates = [41.620198, 41.6232331];
+    	// // console.log(geojson.features[2].geometry.coordinates)
+    	// map.getSource('points').setData(geojson);
     }, 5000);
 }
 
 
+
+function updateBusCoordinate() {
+	getPositionBus("5ed608b7340f60873ff9e1c0").then((res) => {
+		// console.log(res.data)
+		geojsonBus.features = []
+		res.data.buses.map((bus) => {
+			geojsonBus.features.push({
+	            'type': 'Feature',
+	            'properties': {
+	            	id: bus.id
+	            },
+	            'geometry': {
+	                'type': 'Point',
+	                'coordinates': [bus.lon, bus.lat]
+	            }
+	    	})
+		})
+		map.getSource('bus').setData(geojsonBus);
+	});
+}
+
 map.on('load', () => {
 	getPositionBus("5ed608b7340f60873ff9e1c0").then((res) => {
-		console.log(res.data)
 		addPath(res.data)
 	});
 });
@@ -107,24 +175,11 @@ async function getPositionBus(id) {
   	// console.log(region)
     return await axios( 
     	{
-			method: 'post',
+			method: 'get',
+		    url: `http://localhost:9000/getBuses`,
 			headers: {
-				// 'Content-Type': 'application/x-www-form-urlencoded'
-				// 'Accept': 'application/json, text/plain, */*',
-				'Content-Type': 'application/json; charset=UTF-8',
-				// 'Host': 'transport.geogps.ge',
-				// 'Origin': 'http://transport.geogps.ge',
-				// 'Referer': 'http://transport.geogps.ge/live-bus-stop-time',
-			},
-			proxy: {
-				host: 'batauto.ge'
-			},
-		    url: `http://transport.geogps.ge/get-live-bus-stop-time`,
-    		params: {
-    			routeId: id
-    		},
-    		crossdomain: true,
-    		withCredentials: false
+				"Content-Type": "application/json"
+			}
     	}
     );
   } catch (error) {
