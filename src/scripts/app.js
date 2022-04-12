@@ -137,7 +137,7 @@ function addPath(jsonData) {
 
 function updateBusCoordinate() {
 	getPositionBus("5ed608b7340f60873ff9e1c0").then((res) => {
-		// console.log(res.data)
+		console.log(res.data.buses)
 		geojsonBus.features = []
 		res.data.buses.map((bus) => {
 			geojsonBus.features.push({
@@ -176,7 +176,7 @@ async function getPositionBus(id) {
     return await axios( 
     	{
 			method: 'get',
-		    url: `http://localhost:9000/getBuses`,
+		    url: `http://116.203.146.71:9000/getBuses`,
 			headers: {
 				"Content-Type": "application/json"
 			}
