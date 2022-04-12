@@ -1,0 +1,22 @@
+.panel {
+	&.setup-menu {
+		right: 0px;
+		padding-left: 24px;
+		transform: translateX(100%);
+		.panel-content {
+		}
+		.block-customization {
+			padding-top: em(45px);
+			direction: rtl;
+			.scroll-content {
+				direction: ltr;
+				.items {
+					padding-left: 24px;
+				}
+			}
+		}
+		.setup-menu-open & {
+			transform: translateX(0%);
+		}
+	}
+}

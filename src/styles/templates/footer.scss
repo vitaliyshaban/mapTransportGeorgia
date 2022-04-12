@@ -1,0 +1,123 @@
+footer {
+	position: fixed;
+	left: em(328px);
+	right: em(328px);
+	bottom: 0px;
+	padding: 4px 44px;
+	.hidden-left-panel & {
+		left: 0px;
+	}
+	.hidden-right-panel & {
+		right: 0px;
+	}
+	.content-footer {
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		.block-grafick {
+			max-width: 512px;
+			width: 50%;
+			max-height: 300px;
+			border: 1px solid #004650;
+			background-color: #ffffff;
+			border-radius: 8px;
+			margin: 4px;
+			padding: 8px 8px;
+			overflow: hidden;
+			overflow-x: auto;
+			.hidden-slider & {
+				width: 100%;
+				max-width: 512px;
+			}
+			.title {
+				font-size: 14px;
+				font-weight: bold;
+				color: #505050;
+				padding-bottom: 0px;
+			}
+			#chartTensions {
+				height: 144px;
+				min-width: 200px;
+				.highcharts-axis-labels {
+					span {
+						&.active {
+							background-color: #ED272C !important;
+						}
+					}
+				}
+			}
+		}
+		.block-slider {
+			max-width: 376px;
+			width: 50%;
+			border: 1px solid #004650;
+			background-color: #ffffff;
+			border-radius: 8px;
+			margin: 4px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			padding: 8px 8px;
+			overflow: hidden;
+			overflow-x: auto;
+			.hidden-slider & {
+				display: none;
+			}
+			.title {
+				font-size: 14px;
+				font-weight: bold;
+				color: #505050;
+				padding-bottom: 30px;
+			}
+			.slider-gradient {
+				display: block;
+				height: 8px;
+				// background: linear-gradient(to right, rgb(255, 170, 85) 0%, rgb(255, 255, 102) 32.8%, rgb(136, 221, 119) 65.05%, rgb(204, 255, 221) 100%);
+				border-radius: 8px;
+				border: 1px solid #707070;
+				padding: 0px 8px;
+				min-width: 200px;
+				#slider-range {
+					position: relative;
+					height: 8px;
+					.ui-slider-handle {
+						width: 26px;
+						height: 16px;
+						border-radius: 8px;
+						background-color: #004650;
+						top: -24px;
+						margin-left: -12px;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						i {
+							font-size: 11px;
+							line-height: 11px;
+							padding-bottom: 2px;
+							color: #ffffff;
+							font-style: normal;
+							display: block;
+							text-align: center;
+						}
+						&:before {
+							content: '';
+							width: 2px;
+							height: 15px;
+							background-color: #004650;
+							position: absolute;
+							left: 50%;
+							margin-left: -1px;
+							top: 100%;
+						}
+					}
+				}
+			}
+		}
+		.hidden-header & {
+			justify-content: flex-end;
+			.block-grafick {
+				display: none;
+			}
+		}
+	}
+}

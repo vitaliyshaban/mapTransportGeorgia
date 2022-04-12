@@ -1,0 +1,156 @@
+div#legend {
+	position: absolute;
+	right: em(328px);
+	left: em((328px + 48px));
+	margin-right: em(328px);
+	top: $header-height;
+	margin: 8px 48px 0px auto;
+	border: 1px solid #004650;
+	background-color: #ffffff;
+	border-radius: 8px;
+	padding: em(8px) em(8px) em(8px) em(8px);
+	display: none;
+	max-width: max-content;
+	overflow: hidden;
+	overflow-x: auto;
+	.visible-history & {
+		display: block;
+	}
+	.hidden-right-panel & {
+		right: 0;
+	}
+	.hidden-left-panel & {
+		left: 0;
+	}
+	.icons-option {
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		flex: 0 0 auto;
+		.edit-options {
+			display: flex;
+			align-items: center;
+			span {
+				&.edit-mode {
+					display: none;
+				}
+				&.edit-el-cancel {
+					svg {
+						path {
+							fill: #004650;
+							stroke: #004650;
+						}
+					}
+				}
+				&.edit-el-save {
+					svg {
+						path {
+							stroke: #004650;
+						}
+					}
+				}
+				&.edit-el {
+					svg {
+						path {
+							fill: #004650;
+						}
+					}
+				}
+			}
+			&.edit-mode-use {
+				span {
+					&.edit-mode {
+						display: flex;
+					}
+					&.edit-el {
+						display: none;
+					}
+				}
+			}
+		}
+		span {
+			width: em(20px);
+			height: em(20px);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		svg {
+			width: em(12px);
+			height: em(8px);
+		}
+	}
+	div.legend-content {
+		min-width: 240px;
+		div.name {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			b {
+				font-size: em(14px);
+				color: #505050;
+			}
+		}
+		div.legend {
+			ul {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				li {
+					// font-size: em(14px);
+					font-weight: 500;
+					color: #505050;
+					position: relative;
+					padding-left: em(32px);
+					margin: em(15px) 0;
+					i {
+						width: em(24px);
+						height: em(16px);
+						position: absolute;
+						left: 0px;
+						top: 50%;
+						margin-top: em(-8px);
+						background-color: red;
+						border: 1px solid #707070;
+					}
+					span {
+						font-weight: 300;
+					}
+					&:last-child {
+						margin-bottom: 0;
+					}
+					&.edit-mode {
+						display: flex;
+						justify-content: space-between;
+						align-items: center;
+						b {
+							font-weight: 500;
+						}
+						span {
+							width: em(60px);
+							border: 1px solid #004650;
+							border-radius: 4px;
+							display: flex;
+							justify-content: center;
+							input {
+								background-color: transparent;
+								width: 50%;
+								border: none;
+								font-weight: 300;
+								padding: 2px 0;
+								outline: none;
+								&:nth-child(1) {
+									text-align: right;
+								}
+								&.max {
+									width: 100%;
+									text-align: center;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

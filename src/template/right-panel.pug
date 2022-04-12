@@ -1,0 +1,60 @@
+.panel.scrollWidth.right-panel.hidden
+	.button-panel
+		ul
+			li.hidden-panel-right
+				include ../public/kribrum/images/icons/panel/ico-arr-left.svg
+			li.hidden-data
+				include ../public/kribrum/images/icons/panel/ico-arr-line.svg
+			li.visible-hidden-history
+				include ../public/kribrum/images/icons/panel/ico_level.svg
+			li.hidden-all
+				include ../public/kribrum/images/icons/panel/ico_full_screen.svg
+			li.hidden-slider
+				include ../public/kribrum/images/icons/panel/ico-ease.svg
+		//- ul
+		//- 	li#zoomin
+		//- 		include ../public/kribrum/images/icons/panel/ico_plus.svg
+		//- 	li#zoomout
+		//- 		include ../public/kribrum/images/icons/panel/ico-minus.svg
+	.panel-content
+		.title-panel
+			span ИНФОРМАЦИОННАЯ КАРТИНА В РЕГИОНАХ
+			.filter-region
+				span#sort-tension
+					include ../public/kribrum/images/icons/panel/ico-filter-up.svg
+				span#sort-name
+					include ../public/kribrum/images/icons/panel/ico-filter-ab.svg
+				span#filter-region
+					include ../public/kribrum/images/icons/panel/ico-filter-region.svg
+					div.filter-type
+						b Фильтрация
+						ul
+							li
+								label.checkbox
+									input(type="checkbox" checked data-filter="country")
+									i
+									span Страна
+							li
+								label.checkbox
+									input(type="checkbox" checked data-filter="region")
+									i
+									span Область
+							li 
+								label.checkbox
+									input(type="checkbox" checked data-filter="city")
+									i
+									span Город
+		.find-region
+			form
+				input(type="text" placeholder="Поиск по регионам")
+				button.submit-search
+					include ../public/kribrum/images/icons/panel/icon_search.svg
+		.filter-data
+			button.today Сегодня
+			button.week Неделя
+			input#datepicker2(type="text" value="")
+			button.submit
+				include ../public/kribrum/images/icons/panel/dropdown_drrow.svg
+	.block-statistik#block-scroll
+		.scroll-content
+			.items-country.scrollWidth#items-country

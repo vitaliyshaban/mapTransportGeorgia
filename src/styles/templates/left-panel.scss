@@ -1,0 +1,134 @@
+.panel {
+	// width: 328px;
+	width: em(328px);
+	background-color: #fff;
+	position: fixed;
+	top: 0px;
+	bottom: 0px;
+	padding-top: $header-height;
+	@import 'control-buttons.scss';
+	z-index: 10;
+	transition: transform 0.5s ease 0s;
+	.panel-content {
+		position: relative;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		background-color: #fff;
+		z-index: 2;
+		.title-panel {
+			font-size: em(20px);
+			color: #004650;
+			font-weight: bold;
+		}
+		.find-region {
+			form {
+				display: flex;
+				justify-content: space-between;
+			}
+			margin-bottom: 8px;
+			input {
+				border: 1px solid #004650;
+				font-weight: bold;
+				border-radius: 4px;
+				font-size: em(10px);
+				color: #004650;
+				// width: em(128px);
+				padding: 0 em(5px);
+				width: 100%;
+				&::placeholder {
+					font-size: em(12px);
+					font-weight: 300;
+					color: #D0D0D0;
+				}
+			}
+			button {
+				background-color: #004650;
+				border: none;
+				color: #fff;
+				margin-left: 3px;
+				height: em(24px);
+				border-radius: 4px;
+				font-size: em(12px);
+				min-width: em(56px);
+				padding: 0px em(4px);
+				&.submit, &.submit-search {
+					padding: 0;
+					min-width: em(24px);
+					svg {
+						width: 100%;
+						height: 100%;
+					}
+				}
+			}
+		}
+		.filter-data {
+			display: flex;
+			justify-content: space-between;
+			button {
+				background-color: #004650;
+				border: none;
+				color: #fff;
+				margin-right: 3px;
+				height: em(24px);
+				border-radius: 4px;
+				font-size: em(12px);
+				min-width: em(56px);
+				padding: 0px em(4px);
+				&.active {
+					background-color: #ED272C;
+				}
+				&.submit {
+					padding: 0;
+					min-width: em(24px);
+					display: flex;
+				    align-items: center;
+				    justify-content: center;
+				    padding-left: em(2px);
+				    margin-right: 0px;
+					svg {
+						width: em(8px);
+						height: em(12px);
+					}
+				}
+			}
+			input {
+				border: 1px solid #004650;
+				font-weight: bold;
+				border-radius: 4px;
+				font-size: em(10px);
+				color: #004650;
+				width: 100%;
+				padding: 0 em(5px);
+				text-align: center;
+				margin-right: 3px;
+			}
+		}
+	}
+	&.left-panel {
+		left: 0px;
+		padding-right: 24px;
+		.button-panel {
+			.hidden-header & {
+				display: none;
+			}
+		}
+		.panel-content {
+			.title-panel {
+				padding: 0px 0px 3px 16px;
+			}
+			.filter-data {
+				padding: 0px 0px 0px 16px;
+			}
+		}
+		.block-statistik {
+			padding-top: em(85px);
+			.items {
+				padding-right: 24px;
+			}
+		}
+		.hidden-left-panel & {
+			transform: translateX(-100%);
+		}
+	}
+	@import 'block-statistik.scss';
+}

@@ -1,0 +1,47 @@
+{
+  "name": "kribrum",
+  "version": "0.0.1",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "dev": "webpack --mode=development",
+    "build": "webpack --mode=production",
+    "watch": "webpack-dev-server --mode=development --open"
+  },
+  "author": "impulse",
+  "license": "MIT",
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "last 2 version",
+    "not dead",
+    "iOS >= 9"
+  ],
+  "dependencies": {
+    "autoprefixer": "^10.4.4",
+    "axios": "^0.26.1",
+    "babel-loader": "^8.2.4",
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "mapbox-gl": "^2.8.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "path": "^0.12.7",
+    "postcss-loader": "^6.2.1",
+    "pug-html-loader": "^1.0.0",
+    "resolve-url-loader": "^5.0.0",
+    "webpack-browser-plugin": "^1.0.20"
+  },
+  "devDependencies": {
+    "html-loader": "^3.1.0",
+    "html-webpack-pug-plugin": "^4.0.0",
+    "sass": "^1.50.0",
+    "sass-loader": "^12.6.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.1"
+  }
+}

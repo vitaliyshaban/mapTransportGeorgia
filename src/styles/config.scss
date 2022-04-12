@@ -1,0 +1,10 @@
+$min-widht: 1000px;
+$header-height: 64px;
+$font-size: 12px;
+
+
+@function em($size) {
+	// $result: $size * 100vw / $width_mix;
+	$result: $size * 100 / $font-size / 100;
+ 	@return #{$result}em;
+}

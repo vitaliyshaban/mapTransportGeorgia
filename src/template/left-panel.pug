@@ -1,0 +1,21 @@
+.panel.scrollWidth.left-panel.hidden
+	.button-panel
+		ul
+			li.hidden-panel-left
+				include ../public/kribrum/images/icons/panel/ico-arr-left.svg
+		ul
+			li#palyPayse
+				include ../public/kribrum/images/icons/panel/ico-play-pause.svg
+			li#speed.speed-button
+				span x1
+	.panel-content
+		.title-panel ОБЩАЯ ИНФОРМАЦИОННАЯ КАРТИНА
+		.filter-data
+			button.today Сегодня
+			button.week Неделя
+			input#datepicker(type="text" value="")
+			button.submit
+				include ../public/kribrum/images/icons/panel/dropdown_drrow.svg
+	.block-statistik#generalInformation
+		.scroll-content
+			.items.scrollWidth

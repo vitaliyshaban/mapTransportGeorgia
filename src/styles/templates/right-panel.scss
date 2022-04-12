@@ -1,0 +1,151 @@
+.panel {
+	.panel-content {
+		.title-panel {
+		}
+	}
+	&.right-panel {
+		right: 0px;
+		padding-left: 24px;
+		.panel-content {
+			.title-panel {
+				padding: 0px 8px 3px 0px;
+				display: flex;
+				align-items: flex-end;
+				font-size: inherit;
+				> span {
+					font-size: em(20px);
+				}
+				.filter-region {
+					display: flex;
+					align-items: center;
+					flex: 0 0 auto;
+					> span {
+						width: em(20px);
+						height: em(20px);
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						cursor: pointer;
+						position: relative;
+					}
+					#sort-tension {
+						&.active {
+							path {
+								stroke: red;
+								fill: red;
+							}
+						}
+						svg {
+							g {
+								display: none;
+								&.down  {
+									display: block;
+								}
+							}
+						}
+						&.is-sort {
+							g {
+								&.up  {
+									display: block;
+								}
+								&.down  {
+									display: none;
+								}
+							}
+						}
+					}
+					#sort-name {
+						&.active {
+							path {
+								stroke: red;
+								fill: red;
+							}
+							text {
+								fill: red;
+							}
+						}
+						svg {
+							g {
+								display: none;
+								&.down  {
+									display: block;
+								}
+							}
+						}
+						&.is-sort {
+							g {
+								&.up  {
+									display: block;
+								}
+								&.down  {
+									display: none;
+								}
+							}
+						}
+					}
+					#filter-region {
+						.filter-type {
+							display: none;
+							position: absolute;
+							top: 100%;
+							right: 0px;
+							z-index: 10;
+							background-color: #EFEFEF;
+							border-radius: 4px;
+							padding: em(8px);
+							b {
+								font-size: em(12px);
+								font-weight: 500;
+							}
+							ul {
+								list-style: none;
+								margin: 0;
+								padding: 0;
+								li {
+									label {
+										input {
+
+										}
+										i {
+
+										}
+										span {
+											font-size: em(12px);
+											font-weight: 300;
+										}
+									}
+								}
+							}
+						}
+						&.open {
+							.filter-type {
+								display: block;
+							}
+						}
+					}
+				}
+			}
+			.filter-data, .find-region {
+				padding: 0px 8px 0px 0px;
+			}
+		}
+		.block-statistik {
+			padding-top: em(115px);
+			direction: rtl;
+			.scroll-content {
+			    direction: ltr;
+			}
+			.items-country {
+				padding-left: 24px;
+				transition: opacity 0.5s ease 0s;
+				&.load {
+					opacity: 0.5;
+					pointer-events: none;
+				}
+			}
+		}
+		.hidden-right-panel & {
+			transform: translateX(100%);
+		}
+	}
+}

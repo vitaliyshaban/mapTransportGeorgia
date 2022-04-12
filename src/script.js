@@ -1,0 +1,1 @@
+var URL_url = {server_url};

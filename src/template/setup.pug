@@ -1,0 +1,42 @@
+.panel.setup-menu.hidden
+	.panel-content
+		.title-panel
+			span НАСТРОЙКИ
+	.block-customization
+		.scroll-content
+			.items
+				.item.open
+					.head-block
+						.title Размер шрифта
+					.content-block.radio
+						.input-radio
+							label
+								input(type="radio" name="contact" value="8")
+								span 8 pt
+							label
+								input(type="radio" name="contact" value="10")
+								span 10 pt
+							label
+								input(type="radio" name="contact" value="12" checked)
+								span 12 pt
+							label
+								input(type="radio" name="contact" value="14")
+								span 14 pt
+							label
+								input(type="radio" name="contact" value="16")
+								span 16 pt
+				.item.open
+					.head-block
+						.title Аккаунт
+					.content-block.buttons
+						ul
+							li 
+								b Имя: 
+								span#usernameacc
+							li
+								b Права: 
+								span#typeuser
+						div.button
+							button#exit-app
+								span Выйти
+							div.isAdmin
