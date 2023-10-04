@@ -52,6 +52,27 @@ const config = {
           "css-loader",
           "sass-loader",
         ],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        loader: 'file-loader',
+        options: {
+          esModule: false,
+          name: '[path][name].[ext]',
+          type: 'asset/resource',
+          // outputPath: 'img'
+        },
+      },
+      {
+        test: /\.static$/,
+        use: [
+          {
+            loader: 'static-directory-loader',
+            options: {
+              outputPath: 'public',
+            },
+          },
+        ],
       }
     ]
   },

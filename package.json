@@ -21,10 +21,12 @@
     "iOS >= 9"
   ],
   "dependencies": {
+    "@turf/turf": "^6.5.0",
     "autoprefixer": "^10.4.4",
     "axios": "^0.26.1",
     "babel-loader": "^8.2.4",
     "css-loader": "^6.7.1",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "mapbox-gl": "^2.8.0",
     "mini-css-extract-plugin": "^2.6.0",
@@ -32,6 +34,7 @@
     "postcss-loader": "^6.2.1",
     "pug-html-loader": "^1.0.0",
     "resolve-url-loader": "^5.0.0",
+    "static-directory-loader": "^1.0.2",
     "webpack-browser-plugin": "^1.0.20"
   },
   "devDependencies": {
